@@ -19,6 +19,10 @@ jobs:
         with:
           java-version: '8'
           distribution: 'zulu'
+          server-username: OSSRH_JIRA_USERNAME
+          server-password: OSSRH_JIRA_PASSWORD
+          gpg-private-key: ${{ secrets.GPG_PRIVATE_KEY }}
+          gpg-passphrase: GPG_PASSPHRASE
 
       - name: Build with Maven
         run: mvn --batch-mode --update-snapshots verify
